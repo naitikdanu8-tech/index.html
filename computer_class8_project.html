@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer — Class 8 Project</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;font-family:Arial,Helvetica,sans-serif;background:#080d20;color:#f7f8ff;overflow:hidden}
+  body{
+    background:
+      radial-gradient(circle at 80% 20%, rgba(91,70,190,.30), transparent 34%),
+      radial-gradient(circle at 25% 75%, rgba(54,75,160,.18), transparent 30%),
+      linear-gradient(135deg,#070c1b,#111735 55%,#17133d);
+  }
+  .progress{position:fixed;top:0;left:0;height:4px;background:#8d9cff;width:20%;transition:width .45s ease;z-index:20}
+  .app{height:100%;width:100%;position:relative}
+  .slide{
+    position:absolute;inset:0;padding:72px 7vw 105px;
+    opacity:0;transform:translateX(35px) scale(.985);
+    pointer-events:none;transition:opacity .45s ease,transform .45s ease;
+    overflow-y:auto;scrollbar-width:none;
+  }
+  .slide::-webkit-scrollbar{display:none}
+  .slide.active{opacity:1;transform:translateX(0) scale(1);pointer-events:auto}
+  .eyebrow{font-size:14px;letter-spacing:5px;color:#92a0ff;font-weight:700;margin-bottom:18px;text-transform:uppercase}
+  h1{font-size:clamp(46px,8vw,88px);line-height:.98;letter-spacing:-3px;margin-bottom:30px}
+  h1 span{color:#98a4ff}
+  h2{font-size:clamp(34px,5vw,58px);line-height:1.05;margin-bottom:28px;letter-spacing:-1.5px}
+  .lead{max-width:760px;color:#c9cde0;font-size:clamp(18px,2.2vw,25px);line-height:1.75}
+  .tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .tag{padding:12px 20px;border-radius:999px;background:rgba(90,105,220,.18);border:1px solid rgba(141,156,255,.12);color:#aeb7ff;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:950px}
+  .card{
+    padding:28px;border:1px solid rgba(164,173,230,.15);border-radius:26px;
+    background:linear-gradient(145deg,rgba(31,38,72,.58),rgba(18,24,51,.62));
+    box-shadow:inset 0 1px rgba(255,255,255,.03);
+  }
+  .card h3{font-size:25px;color:#d0d6ff;margin-bottom:12px}
+  .card p{color:#c1c6da;font-size:17px;line-height:1.65}
+  .icon{font-size:34px;margin-bottom:14px}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1000px;margin-top:30px;align-items:stretch}
+  .flow .card{position:relative}
+  .num{font-size:45px;font-weight:800;color:#8f9eff;margin-bottom:8px}
+  .arrow{display:flex;align-items:center;justify-content:center;color:#8590e8;font-size:30px}
+  .footer{
+    position:fixed;bottom:24px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:22px;z-index:30;
+    padding:0 20px;
+  }
+  button{
+    border:1px solid rgba(193,199,238,.22);background:rgba(45,51,84,.55);color:#fff;
+    border-radius:999px;padding:15px 27px;font-size:16px;font-weight:700;cursor:pointer;
+    backdrop-filter:blur(10px);transition:.2s;
+  }
+  button:hover{transform:translateY(-2px);background:rgba(68,77,125,.65)}
+  .counter{color:#aeb4cc;font-weight:700;min-width:52px;text-align:center}
+  .credit{margin-top:38px;color:#7f879f;font-size:14px}
+  @media(max-width:700px){
+    .slide{padding:58px 7vw 110px}
+    .grid{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr}
+    .arrow{display:none}
+    h1{letter-spacing:-2px}
+    .card{padding:22px}
+    .footer{gap:10px}
+    button{padding:13px 19px}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="progress" id="progress"></div>
+
+  <section class="slide active">
+    <div class="eyebrow">01 · INTRODUCTION</div>
+    <h1>COMPUTER <span>&</span><br>TECHNOLOGY</h1>
+    <p class="lead">A computer is an electronic machine that accepts data, processes it, stores information, and produces useful results. It helps us learn, create, communicate and solve problems.</p>
+    <div class="tags">
+      <div class="tag">Fast</div><div class="tag">Accurate</div><div class="tag">Useful</div>
+    </div>
+    <p class="credit">CLASS 8 · COMPUTER PROJECT</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">02 · PARTS</div>
+    <h2>Parts of a <span style="color:#98a4ff">Computer</span></h2>
+    <div class="grid">
+      <div class="card"><div class="icon">🖥️</div><h3>Monitor</h3><p>Displays text, pictures, videos and other information on the screen.</p></div>
+      <div class="card"><div class="icon">⚙️</div><h3>CPU</h3><p>The Central Processing Unit processes instructions and controls the computer.</p></div>
+      <div class="card"><div class="icon">⌨️</div><h3>Keyboard</h3><p>Used to type letters, numbers and commands into the computer.</p></div>
+      <div class="card"><div class="icon">🖱️</div><h3>Mouse</h3><p>Helps us point, select, click and move objects on the screen.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">03 · WORKING</div>
+    <h2>How a Computer <span style="color:#98a4ff">Works</span></h2>
+    <p class="lead">A computer follows a simple cycle to turn data into useful information.</p>
+    <div class="flow">
+      <div class="card"><div class="num">01</div><h3>Input</h3><p>Data is entered using devices such as a keyboard, mouse or scanner.</p></div>
+      <div class="arrow">→</div>
+      <div class="card"><div class="num">02</div><h3>Processing</h3><p>The CPU processes the instructions and data.</p></div>
+      <div class="arrow">→</div>
+      <div class="card"><div class="num">03</div><h3>Output</h3><p>The result is shown through a monitor, printer or speakers.</p></div>
+      <div class="arrow">→</div>
+      <div class="card"><div class="num">04</div><h3>Storage</h3><p>Information can be saved for future use.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">04 · USES</div>
+    <h2>Uses of <span style="color:#98a4ff">Computers</span></h2>
+    <div class="grid">
+      <div class="card"><div class="icon">🎓</div><h3>Education</h3><p>Students use computers for online learning, projects, research and presentations.</p></div>
+      <div class="card"><div class="icon">🌐</div><h3>Communication</h3><p>Email, video calls and messaging help people communicate quickly.</p></div>
+      <div class="card"><div class="icon">🏦</div><h3>Business</h3><p>Computers are used for banking, accounting, records and office work.</p></div>
+      <div class="card"><div class="icon">🎮</div><h3>Entertainment</h3><p>We can watch videos, listen to music, play games and create digital art.</p></div>
+    </div>
+    <div class="tags"><div class="tag">Learning</div><div class="tag">Communication</div><div class="tag">Business</div><div class="tag">Entertainment</div></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">05 · CONCLUSION</div>
+    <h1>USE COMPUTERS <span>WISELY.</span></h1>
+    <p class="lead">Computers have become an important part of modern life. They save time, improve productivity and make learning easier. We should use technology responsibly and protect our personal information.</p>
+    <div class="grid" style="margin-top:30px">
+      <div class="card"><div class="icon">🔒</div><h3>Stay Safe</h3><p>Use strong passwords, avoid unknown links and keep personal information private.</p></div>
+      <div class="card"><div class="icon">💡</div><h3>Use Responsibly</h3><p>Take breaks, respect others online and use computers mainly for useful purposes.</p></div>
+    </div>
+    <div class="tags"><div class="tag">Simple</div><div class="tag">Useful</div><div class="tag">Responsible</div></div>
+  </section>
+
+  <div class="footer">
+    <button id="prev">← Previous</button>
+    <div class="counter" id="counter">1 / 5</div>
+    <button id="next">Next →</button>
+  </div>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let current=0;
+function show(n){
+  current=(n+slides.length)%slides.length;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+  document.getElementById('counter').textContent=`${current+1} / ${slides.length}`;
+  document.getElementById('progress').style.width=((current+1)/slides.length*100)+'%';
+}
+document.getElementById('next').onclick=()=>show(current+1);
+document.getElementById('prev').onclick=()=>show(current-1);
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')show(current+1);
+  if(e.key==='ArrowLeft')show(current-1);
+});
+let startX=0;
+document.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-startX;
+  if(Math.abs(dx)>60) show(current+(dx<0?1:-1));
+},{passive:true});
+</script>
+</body>
+</html>
